@@ -3,7 +3,6 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@2.0.1
-  coveralls: coveralls/coveralls@2.2.1
 jobs:
   test-ruby:
     # Install gems, run rspec tests
@@ -17,9 +16,6 @@ jobs:
       - run:
           name: rspec test
           command: bundle exec rspec
-      - coveralls/upload:
-          flag_name: rspec_upload
-          parallel: true
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
