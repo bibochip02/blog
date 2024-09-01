@@ -3,7 +3,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@2.0.1
-  codecov: codecov/codecov@4.0.1
+  coveralls: coveralls/coveralls@2.2.1
 jobs:
   test-ruby:
     # Install gems, run rspec tests
