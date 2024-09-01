@@ -1,0 +1,28 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/hungbui/workspaces/rails7.1/blog/app/models/brand.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hungbui/workspaces/rails7.1/blog/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hungbui/workspaces/rails7.1/blog/app/models/country.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1725204189
+  }
+}
