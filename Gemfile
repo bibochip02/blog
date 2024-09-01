@@ -48,6 +48,10 @@ group :development, :test do
   gem 'simplecov-lcov', '~> 0.8.0'
 
   gem 'shoulda-matchers', '~> 6.0'
+
+  gem 'capybara'
+
+  gem 'selenium-webdriver'
 end
 
 
