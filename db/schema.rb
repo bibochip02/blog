@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_23_061144) do
+ActiveRecord::Schema[7.2].define(version: 2024_07_23_061144) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -27,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_061144) do
   end
 
   create_table "brands", force: :cascade do |t|
-    t.integer "country_id", null: false
+    t.bigint "country_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_brands_on_country_id"
@@ -36,7 +39,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_061144) do
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
-    t.integer "article_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
@@ -50,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_061144) do
   end
 
   create_table "merchant_pins", force: :cascade do |t|
-    t.integer "brand_id", null: false
+    t.bigint "brand_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_merchant_pins_on_brand_id"
