@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-Coveralls.wear!
-
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
@@ -12,8 +10,7 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
+  SimpleCov::Formatter::HTMLFormatter
 ]
 
 SimpleCov.start
