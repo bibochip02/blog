@@ -5,3 +5,4 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'simplecov'
 require 'simplecov-lcov'
 require 'simplecov-cobertura'
+require 'coveralls'

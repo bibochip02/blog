@@ -4,6 +4,7 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@2.1.4
   codecov: codecov/codecov@4.0.1
+  coveralls: coveralls/coveralls@2.2.1
   node: circleci/node@6.1.0
 jobs:
   test-ruby:
@@ -39,6 +40,8 @@ jobs:
       - run:
           name: Upload coverage reports to Codecov
           command: bash <(curl -s https://codecov.io/bash) -F $CIRCLE_JOB
+      - coveralls/upload:
+          flag_name: upload_coverage_spec
 workflows:
   build-and-test:
     jobs:

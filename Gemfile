@@ -54,4 +54,6 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'rspec_junit_formatter'
+
+  gem 'coveralls_reborn', require: false
 end

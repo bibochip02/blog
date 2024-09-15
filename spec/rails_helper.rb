@@ -17,10 +17,12 @@ ActiveRecord::Migration.maintain_test_schema!
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::LcovFormatter,
-  SimpleCov::Formatter::CoberturaFormatter
+  SimpleCov::Formatter::CoberturaFormatter,
+  Coveralls::SimpleCov::Formatter
 ]
 
 SimpleCov.start
+Coveralls.wear!('rails')
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
