@@ -44,7 +44,6 @@ jobs:
       - coveralls/upload:
           flag_name: upload_coverage_spec
       - coverage-reporter/send_report:
-          coverage-reports: coverage/coverage.xml
 workflows:
   build-and-test:
     jobs:
