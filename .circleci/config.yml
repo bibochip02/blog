@@ -36,8 +36,9 @@ jobs:
           command: bundle exec rails db:setup --trace
           name: Database setup
       - ruby/rspec-test
-      - codecov/upload:
-          file: 'coverage/coverage.xml'
+      - run:
+          name: Upload coverage reports to Codecov
+          command: bash <(curl -s https://codecov.io/bash) -F $CIRCLE_JOB
 workflows:
   build-and-test:
     jobs:
