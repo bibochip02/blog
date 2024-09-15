@@ -37,7 +37,7 @@ jobs:
           name: Database setup
       - ruby/rspec-test:
       - codecov/upload
-          file: coverage/coverage.xml
+          file: 'coverage/coverage.xml'
 workflows:
   build-and-test:
     jobs:
