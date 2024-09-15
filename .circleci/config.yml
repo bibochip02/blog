@@ -28,7 +28,7 @@ jobs:
       - node/install:
           install-yarn: true
           node-version: '20.17'
-          yarn-version: '1.22.22'
+          yarn-version: '1.22'
       - run:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
           name: Wait for DB
