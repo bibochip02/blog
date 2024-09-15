@@ -45,7 +45,7 @@ jobs:
           flag_name: upload_coverage_spec
       - run:
           name: Upload coverage reports to Codacy
-          command: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+          command: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov/*.lcov
 workflows:
   build-and-test:
     jobs:
