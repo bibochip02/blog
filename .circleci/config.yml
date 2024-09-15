@@ -43,8 +43,6 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) -F $CIRCLE_JOB -f coverage/coverage.xml
       - coveralls/upload:
           flag_name: upload_coverage_spec
-          base_path: 'coverage'
-          coverage_files: coverage.xml
       - coverage-reporter/send_report:
           coverage-reports: coverage/coverage.xml
 workflows:
