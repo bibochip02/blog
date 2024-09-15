@@ -2,35 +2,43 @@
 # Stacks detected: deps:ruby:.
 version: 2.1
 orbs:
-  ruby: circleci/ruby@2.0.1
+  ruby: circleci/ruby@2.1.4
   codecov: codecov/codecov@4.0.1
+  node: circleci/node@6.1.0
 jobs:
   test-ruby:
-    # Install gems, run rspec tests
     docker:
-      - image: cimg/ruby:3.1.2-node
+      - image: cimg/ruby:3.3.4-node
+      - environment:
+          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_DB: rails_blog_test
+          POSTGRES_PASSWORD: ""
+        image: 'cimg/postgres:14.6-postgis'
     environment:
+      BUNDLE_JOBS: '3'
+      BUNDLE_RETRY: '3'
+      PGHOST: 127.0.0.1
+      PGPASSWORD: ''
+      PGUSER: circleci-demo-ruby
       RAILS_ENV: test
+      TZ: "Asia/Ho_Chi_Minh"
     steps:
       - checkout
       - ruby/install-deps
+      - node/install:
+          install-yarn: true
+          node-version: '20.17'
+          yarn-version: '1.22.22'
       - run:
-          name: rspec test
-          command: bundle exec rspec
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          name: Wait for DB
+      - run:
+          command: bundle exec rails db:schema:load --trace
+          name: Database setup
+      - ruby/rspec-test:
       - codecov/upload
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          file: coverage/coverage.xml
 workflows:
   build-and-test:
     jobs:
       - test-ruby
-    # - deploy:
-    #     requires:
-    #       - test-ruby

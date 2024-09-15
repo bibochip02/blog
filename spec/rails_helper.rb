@@ -10,7 +10,9 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::LcovFormatter,
+  SimpleCov::Formatter::CoberturaFormatter
 ]
 
 SimpleCov.start
