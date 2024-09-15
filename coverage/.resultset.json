@@ -15,14 +15,38 @@
           null
         ]
       },
+      "/home/hungbui/workspaces/rails7.1/blog/spec/models/comment_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/home/hungbui/workspaces/rails7.1/blog/app/models/comment.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/home/hungbui/workspaces/rails7.1/blog/app/models/country.rb": {
         "lines": [
           1,
           1,
           null
         ]
+      },
+      "/home/hungbui/workspaces/rails7.1/blog/app/models/article.rb": {
+        "lines": [
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1726373582
+    "timestamp": 1726379212
   }
 }
