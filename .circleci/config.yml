@@ -35,7 +35,7 @@ jobs:
       - run:
           command: bundle exec rails db:schema:load --trace
           name: Database setup
-      - ruby/rspec-test:
+      - ruby/rspec-test
       - codecov/upload:
           file: 'coverage/coverage.xml'
 workflows:
