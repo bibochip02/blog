@@ -22,7 +22,20 @@ SimpleCov.formatters = [
 ]
 
 SimpleCov.start do
+  command_name "Job #{ENV['CIRCLE_NODE_INDEX']}" if ENV['CIRCLE_NODE_INDEX']
+
   enable_coverage(:branch)
+
+  if ENV['CI']
+    formatter SimpleCov::Formatter::SimpleFormatter
+  else
+    formatter SimpleCov::Formatter::MultiFormatter.new(
+      [
+        SimpleCov::Formatter::SimpleFormatter,
+        SimpleCov::Formatter::HTMLFormatter
+      ]
+    )
+  end
 end
 
 Coveralls.wear!('rails')
