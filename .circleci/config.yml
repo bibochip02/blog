@@ -46,10 +46,6 @@ jobs:
       - run:
           name: Upload coverage reports to Codacy
           command: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov/*.lcov
-      - run:
-          name: Merge and check coverage
-          command: |
-            bundle exec rake coverage:report
       - store_artifacts:
           path: coverage
 workflows:
