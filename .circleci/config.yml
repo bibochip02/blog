@@ -46,12 +46,6 @@ jobs:
       - run:
           name: Upload coverage reports to Codacy
           command: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage/lcov/*.lcov
-      - run:
-          name: Upload report to undercover
-          command: ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
-                --repo bibochip02/blog \
-                --commit $CIRCLE_SHA1 \
-                --lcov coverage/lcov/blog.lcov
 workflows:
   build-and-test:
     jobs:
