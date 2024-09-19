@@ -13,7 +13,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
-
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::LcovFormatter,
@@ -21,7 +21,10 @@ SimpleCov.formatters = [
   Coveralls::SimpleCov::Formatter
 ]
 
-SimpleCov.start
+SimpleCov.start do
+  enable_coverage(:branch)
+end
+
 Coveralls.wear!('rails')
 
 begin
