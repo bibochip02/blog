@@ -55,4 +55,5 @@ group :development, :test do
 
   gem 'rspec_junit_formatter'
 end
+
 gem 'coveralls_reborn', require: false
