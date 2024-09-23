@@ -13,8 +13,15 @@ Shoulda::Matchers.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
-require 'simplecov-json'
 
-SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
+SimpleCov.formatters = [
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::LcovFormatter,
+  SimpleCov::Formatter::CoberturaFormatter,
+  Coveralls::SimpleCov::Formatter
+]
 
-SimpleCov.start
+SimpleCov.start do
+  enable_coverage(:branch)
+end
+# Coveralls.wear!('rails')

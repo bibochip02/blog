@@ -42,6 +42,7 @@ jobs:
         run: bundle exec rspec
 
       - name: Report simplecov
-        uses: pi-chan/simplecov-report-group-action@v1
+        uses: ewjoachim/coverage-comment-action@v1
         with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          COVERAGE_FILE: coverage/coverage.xml
