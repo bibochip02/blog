@@ -14,14 +14,9 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 
-SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
 
-SimpleCov.start
-Coveralls.wear!('rails')
-
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
+SimpleCov.start do
+  enable_coverage(:branch)
 end
+Coveralls.wear!('rails')
