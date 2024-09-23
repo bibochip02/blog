@@ -13,36 +13,9 @@ Shoulda::Matchers.configure do |config|
 end
 
 ActiveRecord::Migration.maintain_test_schema!
+
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
-SimpleCov.formatters = [
-  SimpleCov::Formatter::HTMLFormatter,
-  SimpleCov::Formatter::LcovFormatter,
-  SimpleCov::Formatter::CoberturaFormatter,
-  Coveralls::SimpleCov::Formatter
-]
 
-SimpleCov.start do
-  command_name "Job #{ENV['CIRCLE_NODE_INDEX']}" if ENV['CIRCLE_NODE_INDEX']
+SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
 
-  enable_coverage(:branch)
-
-  if ENV['CI']
-    formatter SimpleCov::Formatter::SimpleFormatter
-  else
-    formatter SimpleCov::Formatter::MultiFormatter.new(
-      [
-        SimpleCov::Formatter::SimpleFormatter,
-        SimpleCov::Formatter::HTMLFormatter
-      ]
-    )
-  end
-end
-
-Coveralls.wear!('rails')
-
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
-end
+SimpleCov.start
