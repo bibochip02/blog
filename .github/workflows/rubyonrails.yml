@@ -48,5 +48,4 @@ jobs:
           publish: true
           diff: true
           diff-branch: main
-          diff-storage: ./
           'togglable-report': true
