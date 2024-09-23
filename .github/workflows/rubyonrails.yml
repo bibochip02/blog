@@ -45,7 +45,7 @@ jobs:
         uses: romeovs/lcov-reporter-action@v0.2.16
         with:
           github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          coverage-filename: coverage/lcov/blog.lcov
+          lcov-file: coverage/lcov/blog.lcov
           filter-changed-files: true
           delete-old-comments: true
           title: remeovs lcov reporter
