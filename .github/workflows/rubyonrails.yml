@@ -46,3 +46,28 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           COVERAGE_FILE: coverage/coverage.xml
+
+      - name: Comment Test Coverage
+        uses: AthleticNet/comment-test-coverage@1.1
+        with:
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          path: coverage/.resultset.json
+          title: Karma Test Coverage
+
+      - name: Coverage Report as Comment (Clover)
+        uses: lucassabreu/comment-coverage-clover@main
+        with:
+          github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          file: coverage/coverage.xml
+
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage/coverage.xml
+          repo-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+
+      - name: Coverage Report as Comment (Clover)
+        uses: lucassabreu/comment-coverage-clover@main
+        with:
+          file: coverage/coverage.xml
+          github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
