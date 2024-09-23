@@ -40,14 +40,8 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec
-      - name: RSpec Report
-        uses: SonicGarden/rspec-report-action@v2
-        with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          json-path: coverage/.resultset.json
 
       - name: Report simplecov
-        uses: aki77/simplecov-report-action@v1
+        uses: pi-chan/simplecov-report-group-action@v1
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-        if: always()
