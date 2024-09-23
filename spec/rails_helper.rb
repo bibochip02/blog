@@ -14,6 +14,10 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+
+ActiveRecord::Migration.maintain_test_schema!
+
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::LcovFormatter,
@@ -24,4 +28,3 @@ SimpleCov.formatters = [
 SimpleCov.start do
   enable_coverage(:branch)
 end
-# Coveralls.wear!('rails')
