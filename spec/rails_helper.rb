@@ -14,7 +14,7 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 
-SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter
+SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 
 SimpleCov.start do
   enable_coverage(:branch)

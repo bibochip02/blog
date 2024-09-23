@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
       - name: Add code coverage comment
-        uses: AthleticNet/comment-test-coverage@1.1
+        uses: pooi/coverage-comment@1.0.0
         with:
-          path: coverage/.resultset.json
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          xml-test-report-path: coverage/coverage.xml
+          github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
