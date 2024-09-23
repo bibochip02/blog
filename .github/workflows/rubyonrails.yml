@@ -49,9 +49,3 @@ jobs:
           filter-changed-files: true
           delete-old-comments: true
           title: remeovs lcov reporter
-
-      - name: Nef10/lcov-reporter-action@v0.3.0
-        uses: Nef10/lcov-reporter-action@v0.3.0
-        with:
-          github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          lcov-file: coverage/lcov/blog.lcov
