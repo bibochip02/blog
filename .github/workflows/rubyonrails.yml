@@ -40,9 +40,14 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec
-      - name: Add code coverage comment
-        if: success() || failure()
-        uses: shettytejas/simplecov-reporter@v1
+      - name: RSpec Report
+        uses: SonicGarden/rspec-report-action@v2
         with:
           token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          result-path: coverage/.resultset.json
+          json-path: coverage/.resultset.json
+
+      - name: Report simplecov
+        uses: aki77/simplecov-report-action@v1
+        with:
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        if: always()
