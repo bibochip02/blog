@@ -62,3 +62,4 @@ source "https://rubygems.org"
 gem "octokit"
 gem "nokogiri"
 gem "json"
+gem 'simplecov_json_formatter', github: 'shettytejas/simplecov_json_formatter', require: false

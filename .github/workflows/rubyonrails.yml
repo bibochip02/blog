@@ -41,7 +41,8 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
       - name: Add code coverage comment
-        uses: keithlayne/simplecov-reporter-action@v1.0.0
+        if: success() || failure()
+        uses: shettytejas/simplecov-reporter@v1
         with:
-          baseline-resultset: coverage/.resultset.json
-          github-token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          result-path: coverage/.resultset.json

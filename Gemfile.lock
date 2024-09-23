@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/shettytejas/simplecov_json_formatter.git
+  revision: d04511460a4c2564d68e37ecdc9e25d79a1e144e
+  specs:
+    simplecov_json_formatter (0.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -279,7 +285,6 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov-lcov (0.8.0)
-    simplecov_json_formatter (0.1.4)
     stringio (3.1.1)
     sync (0.5.0)
     term-ansicolor (1.11.2)
@@ -326,6 +331,7 @@ DEPENDENCIES
   simplecov (~> 0.22.0)
   simplecov-cobertura (~> 2.1)
   simplecov-lcov (~> 0.8.0)
+  simplecov_json_formatter!
   tzinfo-data
 
 BUNDLED WITH
