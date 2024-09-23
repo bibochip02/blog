@@ -41,11 +41,7 @@ jobs:
       - name: Run tests
         run: bundle exec rspec
       - name: Add code coverage comment
-        uses: insightsengineering/coverage-action@v2
+        uses: ewjoachim/coverage-comment-action@v1.0.3
         with:
-          path: coverage/coverage.xml
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          publish: true
-          diff: true
-          diff-branch: main
-          'togglable-report': true
+          COVERAGE_FILE: coverage/coverage.xml
+          GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
