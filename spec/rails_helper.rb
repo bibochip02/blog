@@ -12,8 +12,6 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-ActiveRecord::Migration.maintain_test_schema!
-
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -21,10 +19,9 @@ ActiveRecord::Migration.maintain_test_schema!
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::LcovFormatter,
-  SimpleCov::Formatter::CoberturaFormatter,
-  Coveralls::SimpleCov::Formatter
+  SimpleCov::Formatter::CoberturaFormatter
 ]
 
-SimpleCov.start do
-  enable_coverage(:branch)
+SimpleCov.start 'rails' do
+  enable_coverage :branch
 end
