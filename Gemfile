@@ -57,3 +57,8 @@ group :development, :test do
 end
 
 gem 'coveralls_reborn', require: false
+source "https://rubygems.org"
+
+gem "octokit"
+gem "nokogiri"
+gem "json"
