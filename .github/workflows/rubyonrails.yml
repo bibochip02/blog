@@ -47,13 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           COVERAGE_FILE: coverage/coverage.xml
 
-      - name: Comment Test Coverage
-        uses: AthleticNet/comment-test-coverage@1.1
-        with:
-          token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          path: coverage/.resultset.json
-          title: Karma Test Coverage
-
       - name: Coverage Report as Comment (Clover)
         uses: lucassabreu/comment-coverage-clover@main
         with:
