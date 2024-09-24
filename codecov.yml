@@ -1,27 +1,26 @@
 codecov:
-token: a0f61d44-82ae-4c13-8686-b5001f3f5eaa
-comment:
-  layout: "condensed_header, condensed_files, condensed_footer"
-  behavior: default
-  require_changes: false
-  require_base: false
-  require_head: true
-  hide_project_coverage: TRUE
-coverage:
-  status:
-    project:
-      default:
-        # basic
-        target: auto #default
-        threshold: 5
-        base: auto
-        flags:
-          - unit
-        paths:
-          - "src"
-       # advanced settings
-        branches:
-          - master
-        if_ci_failed: error #success, failure, error, ignore
-        informational: false
-        only_pulls: false
+  comment:
+    layout: "condensed_header, condensed_files, condensed_footer"
+    behavior: default
+    require_changes: false
+    require_base: false
+    require_head: true
+    hide_project_coverage: TRUE
+  coverage:
+    status:
+      project:
+        default:
+          # basic
+          target: auto #default
+          threshold: 5
+          base: auto
+          flags:
+            - unit
+          paths:
+            - "src"
+        # advanced settings
+          branches:
+            - master
+          if_ci_failed: error #success, failure, error, ignore
+          informational: false
+          only_pulls: false
